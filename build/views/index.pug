@@ -1,0 +1,107 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title Certificate Verification
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  link(rel='stylesheet' href='/css/bootstrap5.3.0.min.css' crossorigin='anonymous')
+  link(rel='stylesheet' href='/css/style.css')
+section#report-page.report-page
+  .container-fluid.align-items-center
+    .logo.text-center
+      img(src='https://www.reflomax.com/images/main/logo_reflomax.png')
+      h2
+        | Installation Certificate
+        br
+        | Scan Report
+      p.m-0 Retro Reflective Tape / Rear Marking Plate
+    .row
+      .col-sm-12.col-xs-12.col-12.d-flex.align-items-center
+        .cert-no.w-100.align-items-center
+          div CERTIFICATE NUMBER:
+          p
+            span#lblCerNo #{certificateNumber}
+      .col-sm-6.col-xs-6.col-6.d-flex.align-items-center
+        .b-logo.w-100.align-items-center
+          div BRAND:
+          img#imgBrand(src="/"+Brand)
+      .col-sm-6.col-xs-6.col-6.d-flex.align-items-center
+        .b-material.w-100.align-items-center
+          div MATERIAL:
+          h1
+            span#lbMaterial #{meterial}
+      .col-sm-12.col-xs-12.col-12.d-flex.align-items-center
+        .cert-no.w-100.align-items-center
+          div QR CODE NUMBER:
+          p
+            span#lblQrCode #{id}
+    .row
+      .col-sm-12.col-xs-12.col-12.d-flex.align-items-center
+        .vehicle-details.w-100.align-items-center
+          h5.text-center.mb-3 Vehicle Details
+          .row
+            .col-sm-6.col-6
+              .vd-inner
+                | Passing RTO : 
+                b
+                  span#lbPassRTO #{passingRto}
+            .col-sm-6.col-6
+              .vd-inner
+                | Vehicle Number : 
+                b
+                  span#lbVehNo #{vehicalNumber}
+            .col-sm-6.col-6
+              .vd-inner
+                | Certificate Date : 
+                b
+                  span#lbCertDate #{cartificateDate}
+            .col-sm-6.col-6
+              .vd-inner
+                | Make : 
+                b
+                  span#lbMake #{make}
+            .col-sm-6.col-6
+              .vd-inner
+                | Manufacturing Year : 
+                b
+                  span#lbMfgYear #{manufacturingYear}
+            .col-sm-6.col-6
+              .vd-inner
+                | Vehicle Type : 
+                b
+                  span#lbVehType #{vehicalType}
+            .col-sm-6.col-6
+              .vd-inner
+                | Chassis Number : 
+                b
+                  span#lbChassis #{chassisNumber}
+            .col-sm-6.col-6
+              .vd-inner
+                | Owner&apos;s Name : 
+                b
+                  span#lbOwner #{ownwe}
+            .col-sm-12.col-12
+              #page-url.vd-inner(style='word-break: break-all;')
+    .row
+      .col-sm-12.col-12
+        a#download-button.report-download-btn(href='#' data-html2canvas-ignore='true')
+          | Download Scan Report 
+          img(src='https://glodianreflectives.com/backend/Certificate/download-pdf.png' alt='/')
+script(src='/js/bootstrap5.3.0.bundle.min.js' crossorigin='anonymous')
+script(src='/js/html2pdf.bundle.min.js')
+script.
+  const button = document.getElementById('download-button');
+  function generatePDF() {
+  const element = document.getElementById('report-page');
+  const name = document.getElementById('lblCerNo').innerHTML;
+  const opt = {
+  margin: 0.3,
+  filename: "report-" + name,
+  image: {type: 'jpeg', quality: 1},
+  html2canvas: {scale: 1, scrollY: 0, scrollX: 0},
+  jsPDF: {unit: 'in', format: 'A4', orientation: 'portrait'}
+  }
+  html2pdf(element, opt)//.set(opt).from(element).save();
+  }
+  button.addEventListener('click', generatePDF);
+  document.getElementById("page-url").innerHTML =
+  "Scan Report URL:<b>" + window.location.href + "</b>";
