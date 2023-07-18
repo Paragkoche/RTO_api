@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://admin:Bo5rhc0-sIshzaEUAgQdcia8Mbd60V@asia-south1.f76a1846-0225-400e-a11e-e7babd3f5126.gcp.ybdb.io:5433/yugabyte?ssl=true&sslmode=verify-full&sslrootcert=./root.crt"
+  url      = "postgresql://admin:Bo5rhc0-sIshzaEUAgQdcia8Mbd60V@asia-south1.f76a1846-0225-400e-a11e-e7babd3f5126.gcp.ybdb.io:5433/yugabyte"
 }
 
 model Dat {
