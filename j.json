@@ -1,0 +1,13 @@
+{
+    "certificate":"{moternumber}{brandMaterial}{3|1-9}{brandMaterial}{15|[0-9|A-Z]}",
+    "brandMaterial":"DM - CT",
+    "VahicaleNo":"",
+    "Date":"{m}/{dd}/{yyyy}",
+    "chassis":"07645",
+    "Owner":"name",
+    "Manu. Yr." :2019,
+    "Model":"Tata Lpt",
+    "types":"CR",
+    "PRC":"MH40"
+
+}
